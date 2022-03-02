@@ -1,21 +1,8 @@
-# TestHeis
+# TTK4145 Elevator project
+In less than 200 `SLOC` of Elixir code!
 
-**TODO: Add description**
+NOTE: This code is not complete. It is missing a few lines to make the order brokering work. Maybe it will be fixed some day
 
-## Installation
+## How to start the damn thing
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `test_heis` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:test_heis, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/test_heis](https://hexdocs.pm/test_heis).
-
+Run `iex --name [node name] -S mix` to start the elevator in interactive mode

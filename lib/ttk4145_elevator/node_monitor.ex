@@ -1,4 +1,4 @@
-defmodule TestHeis.NodeMonitor do
+defmodule TTK4145Elevator.NodeMonitor do
   use GenServer, restart: :permanent
   require Logger
 
@@ -12,13 +12,12 @@ defmodule TestHeis.NodeMonitor do
   end
 
   def handle_info({:nodedown, node}, _from, state) do
-    Logger.warn("Node down! : #{inspect node}")
+    Logger.warn("Node down! : #{inspect(node)}")
     {:noreply, state}
   end
 
   def handle_info({:nodeup, node}, state) do
-    Logger.info("Node joined! : #{inspect node}")
+    Logger.info("Node joined! : #{inspect(node)}")
     {:noreply, state}
   end
-
 end

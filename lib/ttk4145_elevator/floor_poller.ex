@@ -1,8 +1,8 @@
-defmodule TestHeis.FloorPoller do
+defmodule TTK4145Elevator.FloorPoller do
   use Task, restart: :permanent
   require Logger
 
-  alias TestHeis.{Driver, Core}
+  alias TTK4145Elevator.{Driver, Core}
 
   @interval 100
 
@@ -15,14 +15,13 @@ defmodule TestHeis.FloorPoller do
     state = Driver.get_floor_sensor_state()
 
     case {previous_state, state} do
-
       {:between_floors, floor} when is_integer(floor) ->
         Core.enter_floor(floor)
 
       _ ->
         :nothing
-
     end
+
     run(state)
   end
 end

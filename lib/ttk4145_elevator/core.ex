@@ -1,4 +1,4 @@
-defmodule TestHeis.Core do
+defmodule TTK4145Elevator.Core do
   use GenServer, restart: :permanent
   require Logger
 
@@ -12,22 +12,23 @@ defmodule TestHeis.Core do
   end
 
   def handle_call({:store_order, order, asignee}, _from, state = %{orders: orders}) do
-    Logger.info("Stored order: #{inspect order} to #{inspect asignee}")
-    new_state = %{state| orders: orders |> Map.put(order, asignee)}
+    Logger.info("Stored order: #{inspect(order)} to #{inspect(asignee)}")
+    new_state = %{state | orders: orders |> Map.put(order, asignee)}
     {:reply, :ok, new_state}
   end
 
   def handle_call({:get_orphaned_orders, dead_node}, _from, state = %{orders: orders}) do
-    orphaned_orders = orders
-    |> Enum.filter(fn {_order, node} -> node == dead_node end)
-    |> Enum.map(fn {order, _node} -> order end)
+    orphaned_orders =
+      orders
+      |> Enum.filter(fn {_order, node} -> node == dead_node end)
+      |> Enum.map(fn {order, _node} -> order end)
 
-    {:reply, {:ok, orphaned_orders} , state}
+    {:reply, {:ok, orphaned_orders}, state}
   end
 
   def handle_call({:enter_floor, floor}, _from, state) do
     Logger.info("Entered floor: #{floor}")
-    new_state = %{state| floor: floor}
+    new_state = %{state | floor: floor}
     {:reply, :ok, new_state}
   end
 

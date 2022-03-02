@@ -3,7 +3,7 @@ defmodule TestHeis.MixProject do
 
   def project do
     [
-      app: :test_heis,
+      app: :ttk4145_elevator,
       version: "0.1.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,7 @@ defmodule TestHeis.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {TestHeis.Application, []}
+      mod: {TTK4145Elevator.Application, []}
     ]
   end
 
